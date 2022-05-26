@@ -1,4 +1,4 @@
-unit UPar_Impar;
+unit UMaior;
 
 interface
 
@@ -11,8 +11,12 @@ type
     Label1: TLabel;
     Edit1: TEdit;
     Label2: TLabel;
+    Edit2: TEdit;
+    Label3: TLabel;
     Button1: TButton;
+    Button2: TButton;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,16 +32,25 @@ implementation
 
 procedure TForm1.Button1Click(Sender: TObject);
 var
-   num: integer;
+   n1, n2: integer;
 begin
-  num := StrToInt (Edit1.Text);
-  if num mod 2 = 0 then
+  n1 := StrToInt(Edit1.Text);
+  n2 := StrToInt(Edit2.Text);
+  if n1 > n2 then
      begin
-       ShowMessage ('Número Par');
-       Label2.Caption := 'Número Par';
+       Label3.Caption := 'Maior: ' + IntToStr(n1);
      end
   else
      begin
-     Label2.Caption := 'Número Ímpar';
+       Label3.Caption := 'Maior: ' + IntToStr(n2);
      end;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  Edit1.Text := ' ';
+  Edit2.Text := ' ';
+  Label3.Caption := ' ';
+end;
+
 end.
